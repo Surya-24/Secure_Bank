@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+    Customer
+{% endblock %}
+{% block body %}
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark" style="color:white">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h1 class="display-4 font-weight-normal">Welcome to our Bank</h1>
+            <!--<p class="lead font-weight-normal">Welcome to our Bank</p> -->
+            <a class="btn btn-primary" href="{{ url_for('user_register_page') }}">Create Account</a>
+            <a class="btn btn-primary" href="{{ url_for('user_login_page') }}">Already Have Account?</a>
+        </div>
+        <div class="product-device box-shadow d-none d-md-block"></div>
+        <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+    </div>
+{% endblock %}

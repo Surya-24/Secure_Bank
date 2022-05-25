@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+Upload Your Photo
+{% endblock %}
+
+
+{% block body %}
+<body>
+    <div class="center">
+        <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button>Submit </button>
+        </form>
+    </div>
+</body>
+{% endblock %}
