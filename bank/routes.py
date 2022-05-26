@@ -147,13 +147,16 @@ def user_register_page():
 @app.route('/user_login', methods=['GET', 'POST'])
 def user_login_page():
     form = UserLoginForm()
+    flash("We are accessing your camera for face id please face your Webcam properly",category='danger')
     if form.validate_on_submit():
         attempted_user = Customer.query.filter_by(username=form.username.data).first()
         
         if attempted_user and attempted_user.check_password_correction(
                 attempted_password=form.password.data 
         ):
-            faceCap()
+            
+            tim=3
+            faceCap(tim)
             res = face_validation(attempted_user.id)
             # if res == [False]:
             #     for i in range(2):
@@ -163,7 +166,8 @@ def user_login_page():
                 login_user(attempted_user)
                 print(res)
                 flash(f'Success! You are logged in as: {attempted_user.username}', category='success')
-                return redirect(url_for('transfer'))
+                #return redirect(url_for('transfer'))
+                return redirect(url_for('user_details'))
             else:
                 print(res)
                 flash('Face Id did not match! Please try again', category='danger')
@@ -173,17 +177,27 @@ def user_login_page():
     return render_template('user_login.html', form=form)
 
 
+@app.route('/user_details', methods=['GET','POST'])
+def user_details():
+    # if request.method == 'POST':
+    #     return redirect(url_for('transfer'))
+    return render_template('user_details.html')
+
 
 @app.route('/transfer', methods=['GET', 'POST'])
 def transfer():
     form = Debit()
+    flash("We are accessing your camera for face i please face your Webcam properly",category='danger')
     if form.validate_on_submit():
+        
         attempted_user = Customer.query.filter_by(username=form.username.data).first()
         credit_user = Customer.query.filter_by(username=form.username2.data).first()
         if attempted_user and credit_user:
             money = form.money.data
             #flash(f'You are requesting to transfer {form.money.data} rupees',category='danger')
-            faceCap()
+            
+            tim=3
+            faceCap(tim)
             res = face_validation(attempted_user.id)
         
             if res == [True]:
