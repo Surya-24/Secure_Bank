@@ -1,41 +1,42 @@
+
 {% extends 'base.html' %}
 
 {% block title %}
 Customer Register Page
 {% endblock %}
-
+ 
 {% block body %}
-<body class="text-center">
-    <div class="container">
-        <h1>Enter Your Details here</h1>
-        <br>
-        <form method="POST" class="form-register" style="color:white" enctype="multipart/form-data">
-            {{ form.hidden_tag() }}
-
-            {{ form.username.label() }}
-            {{ form.username(class="form-control", placeholder="User Name") }}
-            
-            {{ form.email_address.label() }}
-            {{ form.email_address(class="form-control", placeholder="Email Address") }}
-
-            {{ form.password1.label() }}
-            {{ form.password1(class="form-control", placeholder="Password") }}
-
-            {{ form.password2.label() }}
-            {{ form.password2(class="form-control", placeholder="Confirm Password") }}
-
-            
-            <h2>Upload You Image here</h2>
-            <input type="file" name="file" >
-            
-            <br>
-            <div class="checkbox mb-3">
-                <h6>Already have an account?</h6>
-                <a class="btn btn-sm btn-secondary" href="{{ url_for('user_login_page') }}">Login</a>
+<header class="masthead">
+    
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h1>Enter Your Details here</h1>
             </div>
-            <!-- <button>Submit</button>-->
-            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
-        </form>
+            <form method="POST" class="form-register" style="color:white" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+
+                {{ form.username.label() }}
+                {{ form.username(class="form-control", placeholder="User Name") }}
+                
+                {{ form.email_address.label() }}
+                {{ form.email_address(class="form-control", placeholder="Email Address") }}
+    
+                {{ form.password1.label() }}
+                {{ form.password1(class="form-control", placeholder="Password") }}
+    
+                {{ form.password2.label() }}
+                {{ form.password2(class="form-control", placeholder="Confirm Password") }}
+    
+                
+                <h2>Upload You Image here</h2>
+                <input type="file" name="file" >
+                <br>
+                
+                {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            </form>
+            
+        </div>
     </div>
-</body>
+</header>
 {% endblock %}

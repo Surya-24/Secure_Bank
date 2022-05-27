@@ -1,17 +1,22 @@
+
 {% extends 'base.html' %}
 {% block title %}
-    Customer
+    Customer 
 {% endblock %}
+
 {% block body %}
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark" style="color:white">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 font-weight-normal">Welcome User</h1>
-            <h2 >We are happy to see You back</h2>
-            <!--<p class="lead font-weight-normal">Welcome to our Bank</p> -->
+<header class="masthead">
+    
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+            <h1 class="display-4 font-weight-normal">Welcome</h1>
+            <h1 class="display-4 font-weight-normal">User</h1>
+
             <a class="btn btn-primary" href="{{ url_for('user_register_page') }}">Create Account</a>
             <a class="btn btn-primary" href="{{ url_for('user_login_page') }}">Already Have Account?</a>
+            </div>
         </div>
-        <div class="product-device box-shadow d-none d-md-block"></div>
-        <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
     </div>
+</header>
 {% endblock %}

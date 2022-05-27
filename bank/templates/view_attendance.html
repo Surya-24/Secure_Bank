@@ -2,27 +2,34 @@
 {% block title %}
     Viewing Attendance
 {% endblock %}
+
 {% block body %}
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark" style="color:white">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1>Attended Employees </h1>
-            <table class="table table-striped table-sm"> 
-                <thead>
-                    <tr>
-                      <th style="color: rgb(0, 183, 255);">Name of the Employee</th>
-                      <th style="color: rgb(0, 183, 255);">Time they Logged in</th>
-                    </tr>
-                  </thead>
-                <tbody> 
-                    
-                  {% for value in myData%} 
-                  <tr> 
-                    <td style="color: rgba(252, 235, 0, 0.966)";>{{ value[0] }}</td> 
-                    <td style="color: aliceblue;">{{ value[1] }}</td> 
-                  </tr> 
-                  {% endfor %} 
-                </tbody> 
-              </table>     
-        </div>
-    </div>
+<style>
+table, th, td,thead,tbody {
+  border: 1px solid white;
+}
+</style>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark" style="color:white">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+      <h1>Attended Employees </h1>
+      <table class="table table-striped table-sm"> 
+          <thead>
+              <tr>
+                <th style="color: rgb(0, 183, 255);">Name </th>
+                <th style="color: rgb(0, 183, 255);">Time they Logged in</th>
+              </tr>
+            </thead>
+          <tbody> 
+              
+            {% for value in myData%} 
+            <tr> 
+              <td style="color: rgba(252, 235, 0, 0.966)";>{{ value[0] }}</td> 
+              <td style="color: aliceblue;">{{ value[1] }}</td> 
+            </tr> 
+            {% endfor %} 
+          </tbody> 
+        </table>     
+  </div>
 {% endblock %}
+
