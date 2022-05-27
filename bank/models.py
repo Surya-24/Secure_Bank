@@ -1,6 +1,8 @@
 from bank import db, login_manager
 from bank import bcrypt
 from flask_login import UserMixin
+from datetime import datetime
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -36,13 +38,6 @@ class Customer(db.Model, UserMixin):
         db.session.commit()
 
 
-
-class Upload(db.Model):
-    id = db.Column(db.Integer(),primary_key = True)
-    filename = db.Column(db.String(length = 50))
-    filedata = db.Column(db.LargeBinary)
-    
-
 class Employee(db.Model, UserMixin):
     id = db.Column(db.Integer(),primary_key=True)
     username = db.Column(db.String(length=30),nullable=False, unique=True)
@@ -63,3 +58,10 @@ class Employee(db.Model, UserMixin):
     def __repr__(self):
         return self.username
 
+class Todo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String(200), nullable=False)
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return '<Task %r>' % self.id

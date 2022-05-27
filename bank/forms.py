@@ -61,3 +61,6 @@ class Debit(FlaskForm):
     money = IntegerField(label='Enter Money to be debited', validators=[DataRequired()])
     username2 = StringField(label='Please Enter the Person name to whom you want to transfer Money to:', validators=[DataRequired()])
     submit = SubmitField(label='Debit From Your Account')
+
+
+# class toDo(FlaskForm):

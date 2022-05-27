@@ -1,20 +1,17 @@
 import mimetypes
 from pickle import FALSE
-from unicodedata import name
-from io import BytesIO
-import base64, os
 from unittest import result
-import sys
+import sys, os
+import pandas
 import os
 import numpy as np
 from datetime import datetime
 import cv2
 from bank import app
 from werkzeug.utils import secure_filename
-from bank.bank_attendance import att
 import face_recognition
 from flask import render_template, redirect, url_for, flash, request,Response
-from bank.models import Employee, Customer, Upload
+from bank.models import Employee, Customer, Todo
 from bank.forms import EmployeeRegisterForm, UserLoginForm, EmployeeLoginForm, UserRegisterForm, Debit
 from bank import db
 from bank.face_reg import faceCap
@@ -62,21 +59,13 @@ def employee_register_page():
         db.session.commit()
         login_user(user_to_create)
         flash(f'Employee Account Created Successfully! Welcome {user_to_create.username}', category='success')
-        return redirect(url_for('account_details')) 
+        return redirect(url_for('view_attendance')) 
     if form.errors != {}:
         for msg in form.errors.values():
             flash(f"Account was not created due to {msg}", category='danger')
  
     return render_template('employee_register.html', form=form)
 
-@app.route('/account_details', methods=['GET','POST'])
-def account_details():
-    debit_form = Debit()
-    form = UserLoginForm()
-    # logged_user = Customer.query.filter_by(username=form.username.data).first()
-    # logged_bal = logged_user.balance
-    return render_template('account_details.html')
-  
 
 @app.route('/employee_login',methods=['GET','POST'])
 def employee_login_page():
@@ -93,6 +82,15 @@ def employee_login_page():
         else:
             flash('Username and password are not match! Please try again', category='danger')
     return render_template('employee_login.html', form=form)    
+
+
+@app.route('/view_attendance',methods=['GET','POST'])
+def view_attendance():
+    flash(f"Your Attendance Marked Successfully", category='danger')
+    file_path = 'bank/attendance.csv'
+    data = pandas.read_csv(file_path, header=0) 
+    myData = data.values
+    return render_template('view_attendance.html',myData=myData)
 
 
 UPLOAD_FOLDER = "bank/uploads/uploads/.."
@@ -137,7 +135,7 @@ def user_register_page():
         db.session.commit()
         login_user(user_to_create)
         flash(f'Customer Account Created Successfully! Welcome {user_to_create.username}', category='success')
-        return redirect(url_for('transfer'))
+        return redirect(url_for('user_details'))
     if form.errors != {}:
         for msg in form.errors.values():
             flash(f"Account was not created due to {msg}", category='danger')
@@ -187,7 +185,7 @@ def user_details():
 @app.route('/transfer', methods=['GET', 'POST'])
 def transfer():
     form = Debit()
-    flash("We are accessing your camera for face i please face your Webcam properly",category='danger')
+    flash("We are accessing your camera for face id please face your Webcam properly",category='danger')
     if form.validate_on_submit():
         
         attempted_user = Customer.query.filter_by(username=form.username.data).first()
@@ -221,7 +219,7 @@ def cams():
     if request.method == 'POST':
         camera.release()            
         cv2.destroyAllWindows()
-        return redirect(url_for('account_details'))      
+        return redirect(url_for('view_attendance'))      
     return render_template('cam_streaming.html')
 
 camera = cv2.VideoCapture(0)
