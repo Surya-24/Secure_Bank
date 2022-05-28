@@ -1,9 +1,10 @@
 import mimetypes
 from pickle import FALSE
 from unittest import result
-import sys, os
+import sys, time
 import pandas
 import os
+import urllib.parse
 import numpy as np
 from datetime import datetime
 import cv2
@@ -39,6 +40,7 @@ def allowed_file(filename):
 
 UPLOAD_FOLDERR = "bank/emp_reg_faces/emp_reg_faces/.."
 app.config['UPLOAD_FOLDERR'] = UPLOAD_FOLDERR
+
 
 
 @app.route('/employee_register', methods=['GET','POST'])
@@ -86,7 +88,7 @@ def employee_login_page():
 
 @app.route('/view_attendance',methods=['GET','POST'])
 def view_attendance():
-    flash(f"Your Attendance Marked Successfully", category='danger')
+    flash(f"Your Attendance Marked Successfully", category='success')
     file_path = 'bank/attendance.csv'
     data = pandas.read_csv(file_path, header=0) 
     myData = data.values
@@ -113,7 +115,11 @@ def face_validation(upload_id):
     except IndexError as e:
         print(e)
         sys.exit(1)
-    results = face_recognition.compare_faces([face_encoded],user_encoded)
+    try:
+        results = face_recognition.compare_faces([face_encoded],user_encoded)
+    except IndexError as e:
+        print(e)
+        sys.exit(1) 
     return results
     
 @app.route('/user_register', methods=['GET','POST'])
@@ -152,14 +158,15 @@ def user_login_page():
         if attempted_user and attempted_user.check_password_correction(
                 attempted_password=form.password.data 
         ):
-            
             tim=3
             faceCap(tim)
             res = face_validation(attempted_user.id)
-            # if res == [False]:
-            #     for i in range(2):
-            #         faceCap()
-            #         i=i+1
+            if res == [False]:
+                for i in range(2):
+                    faceCap(tim)
+                    i=i+1
+                    if res == [True]:
+                        break
             if res == [True]:
                 login_user(attempted_user)
                 print(res)
@@ -173,6 +180,8 @@ def user_login_page():
             flash('Username and password did not match! Please try again', category='danger')
 
     return render_template('user_login.html', form=form)
+
+
 
 
 @app.route('/user_details', methods=['GET','POST'])
