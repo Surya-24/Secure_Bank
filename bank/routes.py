@@ -12,7 +12,7 @@ from bank import app
 from werkzeug.utils import secure_filename
 import face_recognition
 from flask import render_template, redirect, url_for, flash, request,Response
-from bank.models import Employee, Customer, Todo
+from bank.models import Employee, Customer
 from bank.forms import EmployeeRegisterForm, UserLoginForm, EmployeeLoginForm, UserRegisterForm, Debit
 from bank import db
 from bank.face_reg import faceCap
