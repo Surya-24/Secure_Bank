@@ -3,11 +3,11 @@ Web App Using Flask Web Framework, It Logins Customers using Face id, when the u
 
 ## Requirements: 
 
-Python 3.9.1 version: This can be installed from https://www.python.org/downloads/release/python-391/ 
+```Python 3.9.1 version```: This can be installed from https://www.python.org/downloads/release/python-391/ 
 
-Visual Studio 2019 community version 
+```Visual Studio 2019 community version ```
 
-While installing Visual Studio 2019 community version, we have to tick on Desktop development with C++ plugin. 
+While installing Visual Studio 2019 community version, tick on ```Desktop development with C++``` plugin. 
 
 ![Visual Studio Plugin Image](https://github.com/Surya-24/images_for_readme_files/blob/main/visual_studio_plugin.png?raw=true)
 
