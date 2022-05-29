@@ -12,7 +12,7 @@ While installing Visual Studio 2019 community version, we have to tick on Deskto
 
 ![Visual Studio Plugin Image](https://github.com/Surya-24/images_for_readme_files/blob/main/visual_studio_plugin.png?raw=true)
 
-## Process
+## Process:
 
 Install and Create a Virtual Environment 
 
