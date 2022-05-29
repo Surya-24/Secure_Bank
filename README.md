@@ -10,7 +10,7 @@ Visual Studio 2019 community version
 
 While installing Visual Studio 2019 community version, we have to tick on Desktop development with C++ plugin. 
 
-![alt text](https://github.com/Surya-24/images_for_readme_files/blob/main/visual_studio_plugin.png?raw=true)
+![Visual Studio Plugin Image](https://github.com/Surya-24/images_for_readme_files/blob/main/visual_studio_plugin.png?raw=true)
 
 
  
@@ -66,22 +66,22 @@ If there is no error, we are good to run the WebApp.
 For running the app, firstly we need to create the database 
 
 Make sure you are in ```Secure_bank``` directory, if not use ```cd Secure_bank```, then follow the steps:  
+- [ ] python
+- [ ] from bank import db 
+- [ ] db.create_all() 
+- [ ] exit() 
 
- python 
 
- from bank import db 
-
- db.create_all() 
-
- exit() 
 
 Now database is created successfully in the local machine and the app is ready to use 
 
-Now make sure the directory is unchanged, it should be in Secure_bank directory, if not use                   cd Secure_bank. 
+Now make sure the directory is unchanged, it should be in Secure_bank directory, if not use ```cd Secure_bank``` 
 
-Now use command python run.py 
-
- 
+Now use command 
+```
+python run.py 
+```
+ ![Command Prompt Image](https://github.com/Surya-24/images_for_readme_files/blob/main/cmd%20pic.png?raw=true)
 
 If the shown picture is displayed then the app is running successfully on the local machine. 
 
@@ -89,6 +89,5 @@ Now the last step is to open any browser like Chrome, Microsoft Edge or Brave.
 
 In the search bar paste the given link in the Command Prompt or simply type http://localhost:5000/ and check link to be inserted or explore the website. 
 
-Thank You 
+Thank You 😃
 
-You can connect with me on the LinkedIn  
