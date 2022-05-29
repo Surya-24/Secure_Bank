@@ -1,6 +1,5 @@
 # Secure_Bank
- Web App Using Flask Web Framework, It Logins users using Face Detection, Marks Attendance for Employees in the bank and When the user wants to transact money, its asks for face id for security
-Bank System with Face-Login 
+Web App Using Flask Web Framework, It Logins users using Face id, When the user wants to transact money its asks for face id and marks Attendance for Employees whenever Employee logins with his/her Credentials 
 
 ## Requirements: 
 
