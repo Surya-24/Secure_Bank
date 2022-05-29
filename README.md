@@ -1,5 +1,5 @@
 # Secure_Bank
-Web App Using Flask Web Framework, It Logins users using Face id, When the user wants to transact money its asks for face id and marks Attendance for Employees whenever Employee logins with his/her Credentials 
+Web App Using Flask Web Framework, It Logins Customers using Face id, when the user wants to transact money from his/her account to other then it asks for face id and when an Employees logins with his/her Credentials then it marks attendance for that Employee
 
 ## Requirements: 
 
