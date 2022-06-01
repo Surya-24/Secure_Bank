@@ -85,7 +85,7 @@ If the shown picture is displayed then the app is running successfully on the lo
 
 Now the last step is to open any browser like Chrome, Microsoft Edge or Brave. 
 
-In the search bar paste the given link in the Command Prompt or simply type http://localhost:5000/ and check link to be inserted or explore the website. 
+In the search bar paste the given link in the Command Prompt or simply type http://localhost:5000/ and for more details of working demo of this website check https://youtu.be/q6efMO0pS2Q this video.
 
 Thank You 😃
 
