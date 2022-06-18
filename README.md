@@ -43,7 +43,7 @@ cd Secure_Bank
 Then install the requirements using requirements.txt file which is present in the repository itself. Packages can be installed by using                             
  
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 After successful installation of packages present in requirements.txt, there is one last package named ```dlib```, for installation of this package firstly go to 
